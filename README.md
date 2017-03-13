@@ -1,17 +1,17 @@
 # Prettier formatter for Visual Studio Code
 
-VS Code package to format your Javascript using [Prettier](https://github.com/prettier/prettier).
+VS Code package to format your Javascript using [Prettier] and [Standard].
 
 ### Installation
 
-Install through VS Code extensions. Search for `Prettier - JavaScript formatter`
+Install through VS Code extensions. Search for `Prettier-Standard - JavaScript formatter`
 
-[Visual Studio Code Market Place: Prettier - JavaScript formatter](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
+[Visual Studio Code Market Place: Prettier-Standard - JavaScript formatter](https://marketplace.visualstudio.com/items?itemName=numso.prettier-standard-vscode)
 
-Can also be installed using 
+Can also be installed using
 
 ```
-ext install prettier-vscode
+ext install prettier-standard-vscode
 ```
 
 ### Usage
@@ -21,7 +21,7 @@ ext install prettier-vscode
 ```
 1. CMD + Shift + P -> Format Document
 OR
-1. Select the text you want to Prettify
+1. Select the text you want to Pretty-Standardify
 2. CMD + Shift + P -> Format Selection
 ```
 
@@ -39,11 +39,8 @@ Fit code within this line limit
 
 Number of spaces it should use per tab
 
-#### useFlowParser (default: false)
-Use the flow parser instead of babylon. **Deprecated** use `parser: 'flow'` instead
-
 #### singleQuote (default: false)
-If true, will use single instead of double quotes
+If false, will use double instead of single quotes
 
 #### trailingComma (default: 'none')
 Controls the printing of trailing commas wherever possible. Valid options:
@@ -63,3 +60,12 @@ Which parser to use. Valid options are 'flow' and 'babylon'
 ### Contribute
 
 This is my first Visual Studio Extension so I probably made some terrible choices. Feel free to open issue or PRs!
+
+### Credit
+
+This plugin started with a fork of [esbenp's great plugin] with cues taken from [dtinth's atom plugin] to apply standard to it.
+
+[Prettier]: https://github.com/prettier/prettier
+[Standard]: https://github.com/feross/standard
+[esbenp's great plugin]: https://github.com/esbenp/prettier-vscode
+[dtinth's atom plugin]: https://github.com/dtinth/prettier-standard-formatter

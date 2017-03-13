@@ -1,22 +1,22 @@
 {
-  "name": "prettier-vscode",
-  "displayName": "Prettier - JavaScript formatter",
-  "description": "VS Code plugin for prettier/prettier",
-  "version": "0.10.1",
-  "publisher": "esbenp",
-  "author": "Esben Petersen <@esbenp>",
+  "name": "prettier-standard-vscode",
+  "displayName": "Prettier-Standard - JavaScript formatter",
+  "description": "VS Code plugin for prettier + standard",
+  "version": "0.1.0",
+  "publisher": "numso",
+  "author": "Dallin Osmun <@dallinosmun>",
   "galleryBanner": {
     "color": "#ffe04b",
     "theme": "light"
   },
-  "homepage": "https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode",
+  "homepage": "https://marketplace.visualstudio.com/items?itemName=numso.prettier-standard-vscode",
   "repository": {
     "type": "git",
-    "url": "https://github.com/esbenp/prettier-vscode.git"
+    "url": "https://github.com/numso/prettier-standard-vscode.git"
   },
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/esbenp/prettier-vscode/issues"
+    "url": "https://github.com/numso/prettier-standard-vscode/issues"
   },
   "engines": {
     "vscode": "^1.5.0"
@@ -32,7 +32,7 @@
   "contributes": {
     "configuration": {
       "type": "object",
-      "title": "Prettier - JavaScript formatter configuration",
+      "title": "Prettier-Standard - JavaScript formatter configuration",
       "properties": {
         "prettier.printWidth": {
           "type": "integer",
@@ -44,14 +44,9 @@
           "default": 2,
           "description": "Number of spaces it should use per tab"
         },
-        "prettier.useFlowParser": {
-          "type": "boolean",
-          "default": false,
-          "description": "Use the flow parser instead of babylon (deprecated, use 'parser:\"babylon\"' instead)"
-        },
         "prettier.singleQuote": {
           "type": "boolean",
-          "default": false,
+          "default": true,
           "description": "If true, will use single instead of double quotes"
         },
         "prettier.trailingComma": {
@@ -61,7 +56,7 @@
             "es5",
             "all"
           ],
-          "default": "none",
+          "default": "es5",
           "description": "Controls the printing of trailing commas wherever possible"
         },
         "prettier.bracketSpacing": {
@@ -100,6 +95,8 @@
     "@types/mocha": "^2.2.32"
   },
   "dependencies": {
-    "prettier": "0.22.0"
+    "babel-eslint": "7.1.1",
+    "prettier": "0.22.0",
+    "standard": "9.0.1"
   }
 }
