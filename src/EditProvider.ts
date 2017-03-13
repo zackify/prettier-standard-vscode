@@ -1,7 +1,8 @@
-import prettier from 'prettier'
-import standard from 'standard'
 import { workspace, window, DocumentRangeFormattingEditProvider, DocumentFormattingEditProvider, Range,
   TextDocument, FormattingOptions, CancellationToken, TextEdit, Selection, Position } from 'vscode'
+
+const prettier = require('prettier')
+const standard = require('standard')
 
 type ParserOption = 'babylon' | 'flow'
 type TrailingCommaOption = 'none' | 'es5' | 'all'
