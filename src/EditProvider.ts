@@ -31,6 +31,7 @@ function format(text: string): Promise<string> {
       bracketSpacing: config.bracketSpacing,
       jsxBracketSameLine: config.jsxBracketSameLine,
       parser,
+      semi: false
     })
     standard.lintText(pretty, { fix: true, parser: 'babel-eslint' }, (err, result) => {
       if (err) return reportError('1', err)
