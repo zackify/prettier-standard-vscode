@@ -95,8 +95,8 @@
     "@types/mocha": "^2.2.32"
   },
   "dependencies": {
-    "babel-eslint": "7.1.1",
-    "prettier": "1.1.0",
-    "standard": "9.0.1"
+    "babel-eslint": "7.2.2",
+    "prettier": "1.2.2",
+    "standard": "10.0.2"
   }
 }
