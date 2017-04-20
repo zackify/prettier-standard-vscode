@@ -59,7 +59,7 @@ Which parser to use. Valid options are 'flow' and 'babylon'
 
 ### Contribute
 
-This is my first Visual Studio Extension so I probably made some terrible choices. Feel free to open issue or PRs!
+This is my first Visual Studio Extension so I probably made some terrible choices. Feel free to [open issues or PRs on the GitHub page][github page]!
 
 ### Credit
 
@@ -69,3 +69,4 @@ This plugin started with a fork of [esbenp's great plugin] with cues taken from 
 [Standard]: https://github.com/feross/standard
 [esbenp's great plugin]: https://github.com/esbenp/prettier-vscode
 [dtinth's atom plugin]: https://github.com/dtinth/prettier-standard-formatter
+[github page]: https://github.com/numso/prettier-standard-vscode
