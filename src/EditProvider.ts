@@ -35,7 +35,7 @@ function format(text: string): Promise<string> {
     })
     standard.lintText(pretty, { fix: true, parser: 'babel-eslint' }, (err, result) => {
       if (err) return reportError('1', err)
-      const output = result.results[0].output
+      const output = result.results[0].output || pretty
       if (typeof output === 'string') return resolve(output)
       if (result.results[0].errorCount) return reportError('2', result)
       return reportError('3', result)
