@@ -15,14 +15,14 @@ import {
 const prettier = require('prettier')
 const standard = require('standard')
 
+type ArrowParensOption = 'avoid' | 'always'
 type ParserOption = 'babylon' | 'flow'
 type TrailingCommaOption = 'none' | 'es5' | 'all'
 type ShowAction = 'Show'
 
 interface PrettierConfig {
+  arrowParens: ArrowParensOption
   printWidth: number
-  tabWidth: number
-  singleQuote: boolean
   trailingComma: TrailingCommaOption
   bracketSpacing: boolean
   jsxBracketSameLine: boolean
@@ -32,16 +32,14 @@ interface PrettierConfig {
 function format(text: string): Promise<string> {
   return new Promise((resolve, reject) => {
     const config: PrettierConfig = workspace.getConfiguration('prettier') as any
-    let parser = config.parser || 'babylon'
-    let trailingComma = config.trailingComma || 'es5'
     const pretty = prettier.format(text, {
+      arrowParens: config.arrowParens || 'avoid',
       printWidth: config.printWidth,
-      tabWidth: config.tabWidth,
-      singleQuote: config.singleQuote,
-      trailingComma,
+      singleQuote: true,
+      trailingComma: config.trailingComma || 'es5',
       bracketSpacing: config.bracketSpacing,
       jsxBracketSameLine: config.jsxBracketSameLine,
-      parser,
+      parser: config.parser || 'babylon',
       semi: false
     })
     standard.lintText(
