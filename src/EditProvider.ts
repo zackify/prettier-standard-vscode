@@ -12,8 +12,9 @@ import {
   Position
 } from 'vscode'
 
-const prettier = require('prettier')
+const prettify = require('prettier-eslint')
 const standard = require('standard')
+const eslintConfig = require('./eslint-config')
 
 type ArrowParensOption = 'avoid' | 'always'
 type ParserOption = 'babylon' | 'flow'
@@ -32,16 +33,22 @@ interface PrettierConfig {
 function format(text: string): Promise<string> {
   return new Promise((resolve, reject) => {
     const config: PrettierConfig = workspace.getConfiguration('prettier') as any
-    const pretty = prettier.format(text, {
-      arrowParens: config.arrowParens || 'avoid',
-      printWidth: config.printWidth,
-      singleQuote: true,
-      trailingComma: config.trailingComma || 'es5',
-      bracketSpacing: config.bracketSpacing,
-      jsxBracketSameLine: config.jsxBracketSameLine,
-      parser: config.parser || 'babylon',
-      semi: false
+    const pretty = prettify({
+      text,
+      prettierLast: true,
+      eslintConfig,
+      prettierOptions: {
+        arrowParens: config.arrowParens || 'avoid',
+        printWidth: config.printWidth,
+        singleQuote: true,
+        trailingComma: config.trailingComma || 'es5',
+        bracketSpacing: config.bracketSpacing,
+        jsxBracketSameLine: config.jsxBracketSameLine,
+        parser: config.parser || 'babylon',
+        semi: false
+      }
     })
+
     standard.lintText(
       pretty,
       { fix: true, parser: 'babel-eslint' },
@@ -87,8 +94,8 @@ function fullDocumentRange(document: TextDocument): Range {
 
 export default class PrettierEditProvider
   implements
-    DocumentRangeFormattingEditProvider,
-    DocumentFormattingEditProvider {
+  DocumentRangeFormattingEditProvider,
+  DocumentFormattingEditProvider {
   provideDocumentRangeFormattingEdits(
     document: TextDocument,
     range: Range,
